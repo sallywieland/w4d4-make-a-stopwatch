@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%
+}
+.numbers {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.btn_start {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+}
