@@ -6,17 +6,45 @@ img {
   width: 100%;
 }
 
+body {
+  background-color: #A3C9A8;
+}
+
 .numbers {
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  background-color: gray;
+  width: 300px;
+  height: 300px;
+  border-radius: 200px;
   margin: 0 auto;
-  margin-top: 150px;
+  background-color: #DDD8C4;
+  border: 20px solid #50808E;
+  box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.numbers span {
+  line-height: 250px;
+  vertical-align: middle;
+  width: 50px;
+  font-size: 40px;
 }
 
 .btn_start {
   display: inline-block;
-  height: 100px;
-  width: 100px;
+  height: 30px;
+  width: 80px;
+  margin-top: 200px;
+  background-color: #50808E;
+  border-radius: 4px;
+  border: 1px solid #50808E;
+  box-shadow: 5px 0px 50px rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  color: #DDD8C4;
+}
+
+.btn_stem {
+  height: 20px;
+  width: 15px;
+  background-color: #50808E;
+  margin: 0 auto;
+  box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.5);
 }
