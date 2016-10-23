@@ -17,8 +17,9 @@ var timerReset // setting variable for the timerReset function --> defined it he
 var backgroundTimer // leaving this variable blank so that it can be defined under an EventListener
 var colorsArray = ['#84B59F', '#69A297', '#A3C9A8'] // creating the array for the backgroundChange function to loop through.
 var backgroundCount = 0 // setting the starting point of the backgroundChange function at 0.
+var shortcuts = document.getElementById('start_pause') // grabbing the start button from the HTML file to connect with the keypress event
 
-// CLICK EVENTS !
+// EVENTS !
 
 button.addEventListener('click', function() { // creating the click event for the button
     clearInterval(timer) // UNSURE WHY THIS IS NEEDED ALONG WITH THE OTHER ONE --> ASK
@@ -62,6 +63,9 @@ button.addEventListener('dblclick', function() { // creating the double click ev
     // when the tens, secs, & mins sections all are set at 00 --> button text reverts back to stating START
     }
 })
+
+shortcuts.addEventListener('keypress', pressKeys) // creating the keypress event to pause and continue timer by pressing the enter key --> UNSURE OF HOW TO GET IT SO THE EVENT ACTUALLY STARTS THE CLOCK.
+
 
 // FUNCTIONS !
 
@@ -113,5 +117,22 @@ function backgroundChange(){
     if (backgroundCount == colorsArray.length) {
         backgroundCount = 0;
     // when the backgroundCount goes through the length of the array, return the backgroundCount back to 0, or the start of the array.
+    }
+}
+function pressKeys(event) {
+    if (event.key === 'Enter') { // grabbing the 'enter' key
+        startStopWatch()
+    // when the enter button is pressed, the startStopWatch function below begins.
+    }
+    else if (event.key == 'r') { // grabbing the 'r' key for reset
+        clearInterval(timer)
+        tens = '00'
+        secs = '00'
+        mins = '00'
+        tensSpan.innerHTML = tens
+        secsSpan.innerHTML = secs + ':'
+        minsSpan.innerHTML = mins + ':'
+        clearInterval(backgroundTimer)
+        button.innerHTML = 'START'
     }
 }
