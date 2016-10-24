@@ -22,10 +22,10 @@ var shortcuts = document.getElementById('start_pause') // grabbing the start but
 // EVENTS !
 
 button.addEventListener('click', function() { // creating the click event for the button
-    clearInterval(timer) // UNSURE WHY THIS IS NEEDED ALONG WITH THE OTHER ONE --> ASK
+    clearInterval(timer) // pauses timer --> ignores until it is needed.
     // first time function runs, it ignores this clearInterval.
     timer = setInterval(startStopWatch, 10)
-    // setting the var timer to a setInterval, calling the startStopWatch function
+    // setting the var timer to a setInterval, calling the startStopWatch function.
 
     if (button.innerHTML === 'START' || button.innerHTML === 'CONTINUE') {
         // if the button text is START, when it's clicked, show pause.
@@ -35,7 +35,7 @@ button.addEventListener('click', function() { // creating the click event for th
     }
     else {
         clearInterval(timer) // pauses the timer because clearInterval stops the repeating process set above.
-        button.innerHTML = 'CONTINUE' // changes button text from PAUSE to CONTINUE
+        button.innerHTML = 'CONTINUE' // changes button text from PAUSE to CONTINUE.
     }
 })
 
@@ -84,30 +84,30 @@ timerReset = setTimeout(function() { // setTimeout function states that if timer
 function startStopWatch() { // function for the stopwatch to actually start.
     tens++ // pulls from var tens above and begins adding +1
     if (tens < 9) {
-        document.getElementById('tens').innerHTML = '0' + tens
+        tensSpan.innerHTML = '0' + tens
     // if the tenths of a second section is less than 10, add a zero (through concatenation) to text in order to make it look like a traditional stopwatch.
     }
     if (tens > 9) {
-        document.getElementById('tens').innerHTML = tens
+        tensSpan.innerHTML = tens
     // if the tenths of a second section is greater than 9, take away concatenation stated above.
     }
     if (tens > 99) {
         secs++
-        document.getElementById('secs').innerHTML = '0' + secs + ':'
+        secsSpan.innerHTML = '0' + secs + ':'
     // when the tenths of a second section is great than 99, begin the var secs that +1 --> adds zero (through concatenation)
         tens = 0 // sets the tens variable back to zero.
-        document.getElementById('tens').innerHTML = '0' + 0 // UNSURE OF WHAT THIS DOES --> ASK
+        tensSpan.innerHTML = '0' + 0 // sets text back to '00'.
     }
     if (secs > 9) {
-        document.getElementById('secs').innerHTML = secs + ':'
+        secsSpan.innerHTML = secs + ':'
     // if the seconds section is greater than 9, take away concatenation stated above.
     }
     if (secs > 59) {
         mins++
-        document.getElementById('mins').innerHTML = '0' + mins + ':'
+        minsSpan.innerHTML = '0' + mins + ':'
     // when the seconds sections is greater than 59, begin the var mins that +1 --> adds zero (through concatenation)
         secs = 0 // sets the secs variable back to zero.
-        document.getElementById('secs').innerHTML = 0 // UNSURE OF WHAT THIS DOES -->
+        secsSpan.innerHTML = '0' + 0 + ':' // sets text back to '00'.
     }
 }
 function backgroundChange(){
@@ -132,7 +132,7 @@ function pressKeys(event) {
         tensSpan.innerHTML = tens
         secsSpan.innerHTML = secs + ':'
         minsSpan.innerHTML = mins + ':'
-        clearInterval(backgroundTimer)
-        button.innerHTML = 'START'
+        clearInterval(backgroundTimer) // pauses background colors from continuing to loop.
+        button.innerHTML = 'START' // changes button text to start after reset.
     }
 }
